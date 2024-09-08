@@ -1,0 +1,184 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Ahmed Khan",
+      "email": "ahmed.khan@example.com",
+      "address": "123 Gulberg",
+      "city": "Lahore",
+      "phone": "+92-300-1234567",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Fatima Ali",
+      "email": "fatima.ali@example.com",
+      "address": "456 F-10",
+      "city": "Islamabad",
+      "phone": "+92-300-2345678",
+      "status": "inactive"
+    },
+    {
+      "id": 3,
+      "name": "Hassan Shah",
+      "email": "hassan.shah@example.com",
+      "address": "789 Saddar",
+      "city": "Karachi",
+      "phone": "+92-300-3456789",
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "name": "Ayesha Malik",
+      "email": "ayesha.malik@example.com",
+      "address": "321 Defence",
+      "city": "Karachi",
+      "phone": "+92-300-4567890",
+      "status": "inactive"
+    },
+    {
+      "id": 5,
+      "name": "Usman Qureshi",
+      "email": "usman.qureshi@example.com",
+      "address": "654 Model Town",
+      "city": "Lahore",
+      "phone": "+92-300-5678901",
+      "status": "active"
+    },
+    {
+      "id": 6,
+      "name": "Sara Ahmed",
+      "email": "sara.ahmed@example.com",
+      "address": "112 Clifton",
+      "city": "Karachi",
+      "phone": "+92-300-6789012",
+      "status": "active"
+    },
+    {
+      "id": 7,
+      "name": "Ali Raza",
+      "email": "ali.raza@example.com",
+      "address": "234 Bahria Town",
+      "city": "Lahore",
+      "phone": "+92-300-7890123",
+      "status": "inactive"
+    },
+    {
+      "id": 8,
+      "name": "Nadia Khan",
+      "email": "nadia.khan@example.com",
+      "address": "567 DHA",
+      "city": "Islamabad",
+      "phone": "+92-300-8901234",
+      "status": "active"
+    },
+    {
+      "id": 9,
+      "name": "Imran Ahmed",
+      "email": "imran.ahmed@example.com",
+      "address": "890 Garden Town",
+      "city": "Lahore",
+      "phone": "+92-300-9012345",
+      "status": "inactive"
+    },
+    {
+      "id": 10,
+      "name": "Zainab Bibi",
+      "email": "zainab.bibi@example.com",
+      "address": "345 Gulshan-e-Iqbal",
+      "city": "Karachi",
+      "phone": "+92-300-0123456",
+      "status": "active"
+    },
+    {
+      "id": 11,
+      "name": "Omar Farooq",
+      "email": "omar.farooq@example.com",
+      "address": "678 Johar Town",
+      "city": "Lahore",
+      "phone": "+92-300-1234568",
+      "status": "active"
+    },
+    {
+      "id": 12,
+      "name": "Mariam Tariq",
+      "email": "mariam.tariq@example.com",
+      "address": "901 Shalimar",
+      "city": "Islamabad",
+      "phone": "+92-300-2345679",
+      "status": "inactive"
+    },
+    {
+      "id": 13,
+      "name": "Bilal Hussain",
+      "email": "bilal.hussain@example.com",
+      "address": "234 Ameerpet",
+      "city": "Karachi",
+      "phone": "+92-300-3456780",
+      "status": "active"
+    },
+    {
+      "id": 14,
+      "name": "Hina Ahmed",
+      "email": "hina.ahmed@example.com",
+      "address": "567 Bahria Town",
+      "city": "Islamabad",
+      "phone": "+92-300-4567891",
+      "status": "inactive"
+    },
+    {
+      "id": 15,
+      "name": "Tariq Javed",
+      "email": "tariq.javed@example.com",
+      "address": "890 Saddar",
+      "city": "Karachi",
+      "phone": "+92-300-5678902",
+      "status": "active"
+    },
+    {
+      "id": 16,
+      "name": "Kiran Bibi",
+      "email": "kiran.bibi@example.com",
+      "address": "123 F-11",
+      "city": "Islamabad",
+      "phone": "+92-300-6789013",
+      "status": "inactive"
+    },
+    {
+      "id": 17,
+      "name": "Mansoor Ali",
+      "email": "mansoor.ali@example.com",
+      "address": "456 Garden Town",
+      "city": "Lahore",
+      "phone": "+92-300-7890124",
+      "status": "active"
+    },
+    {
+      "id": 18,
+      "name": "Alina Nawaz",
+      "email": "alina.nawaz@example.com",
+      "address": "789 DHA",
+      "city": "Karachi",
+      "phone": "+92-300-8901235",
+      "status": "inactive"
+    },
+    {
+      "id": 19,
+      "name": "Raza Shah",
+      "email": "raza.shah@example.com",
+      "address": "321 Clifton",
+      "city": "Lahore",
+      "phone": "+92-300-9012346",
+      "status": "active"
+    },
+    {
+      "id": 20,
+      "name": "Sana Malik",
+      "email": "sana.malik@example.com",
+      "address": "654 Model Town",
+      "city": "Islamabad",
+      "phone": "+92-300-0123457",
+      "status": "inactive"
+    }
+  ]
+}
