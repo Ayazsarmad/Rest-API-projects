@@ -15,6 +15,8 @@ import "./App.css";
 function App() {
   const [data, setdata] = useState([]);
   const [value, setvalue] = useState("");
+  const [sortValue, setsortValue] = useState("");
+  const sortOpt = ["name", "email", "address", "city", "phone", "status"];
 
   useEffect(() => {
     LoadUsersData();
@@ -43,6 +45,29 @@ function App() {
       );
       setdata(filteredData);
       setvalue("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSort = async (e) => {
+    try {
+      let value = e.target.value;
+      setsortValue(value);
+      return await axios
+        .get(`http://localhost:5000/users?_sort=${value}&_order=asc`)
+        .then((response) => setdata(response.data))
+        .catch((err) => console.log(err));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleFilter = async (value) => {
+    try {
+      return await axios
+        .get(`http://localhost:5000/users?status=${value}`)
+        .then((response) => setdata(response.data));
     } catch (error) {
       console.log(error);
     }
@@ -122,6 +147,38 @@ function App() {
             </MDBCol>
           </MDBRow>
         </div>
+        <MDBRow>
+          <MDBCol size={8}>
+            <h5>Sort by:</h5>
+            <select
+              style={{ width: "50%", borderRadius: "2px", height: "35px" }}
+              onChange={handleSort}
+              value={sortValue}
+            >
+              <option>Please select value</option>
+              {sortOpt.map((item, index) => (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              ))}
+            </select>
+          </MDBCol>
+          <MDBCol size={4}>
+            <h2>Filter by status:</h2>
+            <MDBBtnGroup>
+              <MDBBtn color="success" onClick={() => handleFilter("active")}>
+                Active
+              </MDBBtn>
+              <MDBBtn
+                style={{ marginLeft: "2px" }}
+                color="danger"
+                onClick={() => handleFilter("inactive")}
+              >
+                Inactive
+              </MDBBtn>
+            </MDBBtnGroup>
+          </MDBCol>
+        </MDBRow>
       </MDBContainer>
     </div>
   );
