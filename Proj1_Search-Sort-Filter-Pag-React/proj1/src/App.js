@@ -29,8 +29,24 @@ function App() {
 
   // console.log(data.map((data) => ({ name: data.name, city: data.city })));
 
-  const handleReset = () => {};
-  const handleSearch = () => {};
+  const handleReset = () => {
+    LoadUsersData();
+  };
+  const handleSearch = async (e) => {
+    try {
+      e.preventDefault();
+      const respData = await axios.get(
+        `http://localhost:5000/users?q=${value}`
+      );
+      const filteredData = respData.data.filter((item) =>
+        item.name.toLowerCase().startsWith(value.toLowerCase())
+      );
+      setdata(filteredData);
+      setvalue("");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="App">
@@ -79,7 +95,7 @@ function App() {
                     <th scope="col">Status</th>
                   </tr>
                 </MDBTableHead>
-                {data.lenght === 0 ? (
+                {data.length === 0 ? (
                   <MDBTableBody className="align-center mb-0">
                     <tr>
                       <td colSpan={8} className="text-center mb-0">
