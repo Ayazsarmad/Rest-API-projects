@@ -9,6 +9,9 @@ import {
   MDBContainer,
   MDBBtn,
   MDBBtnGroup,
+  MDBPagination,
+  MDBPaginationItem,
+  MDBPaginationLink,
 } from "mdb-react-ui-kit";
 import "./App.css";
 
@@ -16,16 +19,22 @@ function App() {
   const [data, setdata] = useState([]);
   const [value, setvalue] = useState("");
   const [sortValue, setsortValue] = useState("");
+  const [currentPage, setCurrentPage] = useState(0);
+  const [pageLimit] = useState(4);
+
   const sortOpt = ["name", "email", "address", "city", "phone", "status"];
 
   useEffect(() => {
-    LoadUsersData();
+    LoadUsersData(0, 4, 0);
   }, []);
 
-  const LoadUsersData = async () => {
+  const LoadUsersData = async (start, end, increment) => {
     return await axios
-      .get("http://localhost:5000/users")
-      .then((response) => setdata(response.data))
+      .get(`http://localhost:5000/users?_start=${start}&_end=${end}`)
+      .then((response) => {
+        setdata(response.data);
+        setCurrentPage(currentPage + increment);
+      })
       .catch((err) => console.log(err));
   };
 
@@ -70,6 +79,60 @@ function App() {
         .then((response) => setdata(response.data));
     } catch (error) {
       console.log(error);
+    }
+  };
+
+  const randerPagination = () => {
+    if (currentPage === 0) {
+      return (
+        <MDBPagination>
+          <MDBPaginationItem>
+            <MDBPaginationLink className="mb-0">1</MDBPaginationLink>
+          </MDBPaginationItem>
+          <MDBPaginationItem>
+            <MDBBtn onClick={() => LoadUsersData(4, 8, 1)}> next</MDBBtn>
+          </MDBPaginationItem>
+        </MDBPagination>
+      );
+    } else if (currentPage < pageLimit - 1 && data.length === pageLimit) {
+      return (
+        <MDBPagination>
+          <MDBPaginationItem>
+            <MDBBtn
+              onClick={() =>
+                LoadUsersData((currentPage - 1) * 4, currentPage * 4, -1)
+              }
+            >
+              Previous
+            </MDBBtn>
+          </MDBPaginationItem>
+          <MDBPaginationItem>
+            <MDBPaginationLink className="mb-0">1</MDBPaginationLink>
+          </MDBPaginationItem>
+          <MDBPaginationItem>
+            <MDBBtn
+              onClick={() =>
+                LoadUsersData((currentPage + 1) * 4, (currentPage + 2) * 4, 1)
+              }
+            >
+              next
+            </MDBBtn>
+          </MDBPaginationItem>
+        </MDBPagination>
+      );
+    } else {
+      return (
+        <MDBPagination>
+          <MDBPaginationItem>
+            <MDBBtn onClick={() => LoadUsersData(4, 8, 1)}> previous</MDBBtn>
+          </MDBPaginationItem>
+          <MDBPaginationItem>
+            <MDBPaginationLink className="mb-0">
+              {currentPage + 1}
+            </MDBPaginationLink>
+          </MDBPaginationItem>
+        </MDBPagination>
+      );
     }
   };
 
@@ -146,6 +209,16 @@ function App() {
               </MDBTable>
             </MDBCol>
           </MDBRow>
+          <div
+            style={{
+              margin: "auto",
+              padding: "15px",
+              maxWidth: "150px",
+              alignContent: "center",
+            }}
+          >
+            {randerPagination()}
+          </div>
         </div>
         <MDBRow>
           <MDBCol size={8}>
