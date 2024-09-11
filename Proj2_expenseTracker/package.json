@@ -1,0 +1,21 @@
+{
+  "name": "proj2_expensetracker",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "Ayaz sarmad",
+  "license": "ISC",
+  "description": "Expense tracker app",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.20.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.4"
+  }
+}

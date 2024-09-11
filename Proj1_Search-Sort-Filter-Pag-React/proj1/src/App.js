@@ -41,7 +41,7 @@ function App() {
   // console.log(data.map((data) => ({ name: data.name, city: data.city })));
 
   const handleReset = () => {
-    LoadUsersData();
+    LoadUsersData(0, 4, 0);
   };
   const handleSearch = async (e) => {
     try {
@@ -94,7 +94,7 @@ function App() {
           </MDBPaginationItem>
         </MDBPagination>
       );
-    } else if (currentPage < pageLimit - 1 && data.length === pageLimit) {
+    } else if (currentPage < pageLimit + 1 && data.length === pageLimit) {
       return (
         <MDBPagination>
           <MDBPaginationItem>
@@ -107,7 +107,9 @@ function App() {
             </MDBBtn>
           </MDBPaginationItem>
           <MDBPaginationItem>
-            <MDBPaginationLink className="mb-0">1</MDBPaginationLink>
+            <MDBPaginationLink className="mb-0">
+              {currentPage + 1}
+            </MDBPaginationLink>
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBBtn
@@ -124,7 +126,7 @@ function App() {
       return (
         <MDBPagination>
           <MDBPaginationItem>
-            <MDBBtn onClick={() => LoadUsersData(4, 8, 1)}> previous</MDBBtn>
+            <MDBBtn onClick={() => LoadUsersData(4, 8, -1)}> previous</MDBBtn>
           </MDBPaginationItem>
           <MDBPaginationItem>
             <MDBPaginationLink className="mb-0">
@@ -160,7 +162,11 @@ function App() {
             <MDBBtn type="submit" color="dark">
               Search
             </MDBBtn>
-            <MDBBtn className="mx-2" color="info" onClick={() => handleReset()}>
+            <MDBBtn
+              className="mx-2"
+              color="info"
+              onClick={() => handleReset(0, 4, 0)}
+            >
               Reset
             </MDBBtn>
           </MDBBtnGroup>
